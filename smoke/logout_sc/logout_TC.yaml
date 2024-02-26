@@ -1,0 +1,22 @@
+appId: com.ventura.mvp
+---
+- tapOn: ${output.logout_PO.home_footer_btn}
+# - repeat:
+#     times: 2
+#     commands:
+#       - tapOn: "11%,6%"
+# #      - scroll
+- repeat:
+    while:
+      notVisible: ${output.logout_PO.profile_menu_btn}
+    commands:
+      - tapOn:
+          point: ${output.logout_PO.dimension_11_6}
+- tapOn: ${output.logout_PO.profile_menu_btn}
+- takeScreenshot: scrollingtologout_Screen
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      text: "Logout" 
+- takeScreenshot: logout_Screen             
+- tapOn: ${output.logout_PO.logout_btn}  

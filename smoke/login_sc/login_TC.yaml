@@ -1,0 +1,32 @@
+appId: com.ventura.mvp
+tags: 
+    - smoke
+    - sanity
+
+---
+- tapOn: ${output.login.login_btn_loginPO}
+- tapOn: ${output.login.loginDetails_input_loginPO}
+# take input for client id
+- inputText: ${clientId_d}
+- takeScreenshot: MainScreen1
+# click on continue button
+- tapOn: ${output.login.continue_btn_loginPO}
+- tapOn: ${output.login.pin_input_loginPO}
+# enter pin 
+- inputText: ${pin_d}
+- takeScreenshot: pin_Screen
+- waitForAnimationToEnd:
+    timeout: 10000
+# generate otp
+- tapOn: ${output.login.get_otp_btn_loginPO}
+- tapOn:  ${output.login.enter_otp_input_loginPO}
+- waitForAnimationToEnd:
+    timeout: 10000
+- takeScreenshot: otpCaptured_Screen
+- inputText: ${OTP_d}
+- takeScreenshot: OTPm_Screen
+- tapOn: ${output.login.verify_btn_loginPO}
+- takeScreenshot: iUnderstand_Screen
+#- tapOn: Skip for now
+- tapOn: ${output.login.iunderstand_btn_loginPO}
+#- tapOn: "Seize the day!"

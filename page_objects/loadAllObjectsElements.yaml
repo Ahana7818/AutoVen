@@ -1,0 +1,5 @@
+appId: com.ventura.mvp
+---
+- runScript: loginScreen_po.js
+- runScript: logout_po.js
+- runScript: hamburgerMenu_po.js

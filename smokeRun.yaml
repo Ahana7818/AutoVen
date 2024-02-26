@@ -1,0 +1,31 @@
+appId: com.ventura.mvp
+name: Custom Flow name
+tags:
+  - smoke
+env:
+    clientId_d: '97993272'
+    pin_d: '1234'
+    OTP_d: '123456' 
+# onFlowStart:
+#   - runScript: 
+#       file: shellScripts/start.sh  
+# onFlowComplete:
+#   - runScript: 
+#       file: shellScripts/stop.sh         
+---
+    # executionOrder:
+    #     continueOnFailure: false # default is true
+    #     flowsOrder:
+
+#Load all page objects elements by file name: loadAllObjectsElements.yaml
+- runFlow: 
+     file: 'page_objects/loadAllObjectsElements.yaml'
+- launchApp:
+    clearState: true
+    stopApp: true    
+- runFlow: "smoke/login_sc/login_TC.yaml"
+#- runFlow: "/Users/ahanasuryavanshi/Documents/MaestroAutomation/SC4_StockPage.yaml"
+#- runFlow: "/Users/ahanasuryavanshi/Documents/MaestroAutomation/SC1_Stage_Home.yaml"
+- runFlow: "/Users/ahanasuryavanshi/Documents/MaestroAutomation/SC3_Stage_PortfolioMenu.yaml"
+- runFlow: "smoke/logout_sc/logout_TC.yaml"
+
